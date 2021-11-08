@@ -1,0 +1,44 @@
+# 主配置文件
+
+主配置文件位于 `plugins\ProtocolStringReplacer\Config.yml`. 它会在 PSR 插件的第一次加载时, 根据系统语言自动生成本地化的版本, 但前提是 PSR 提供了您语言的本地化, 否则我们会生成英文版本.
+
+在此文件中, 您可以控制 PSR 的运行规范, 根据您的需要来进行个性化.
+
+```yaml
+# 请勿手动修改Configs-Version值!
+Configs-Version: 4
+
+Options:
+  # 本地语言. 将在 ProtocolStringReplacer/Locales 中寻找对应 yml 文件.
+  # 此设定也涉及一些内部操作, 建议按照规范 语言缩写(小写)-地区缩写(大写) 来填写.
+  Locale: zh-CN
+
+  Features:
+    # 控制台相关设定.
+    Console:
+      # 在控制台内显示加载的替换配置文件.
+      Print-Replacer-Config-When-Loaded: true
+
+    # 自定义插件占位符的使用格式. 建议使用玩家想不到的格式
+    # 以防止玩家通过占位符获取到不该获取的信息.
+    # 在默认值下, 使用如｛player_name｝的格式来获取占位符的变量.
+    Placeholder:
+      # 使用占位符的前缀. 仅允许一个字符.
+      Placeholder-Head: ｛
+      # 使用占位符的后缀. 仅允许一个字符.
+      Placeholder-Tail: ｝
+
+    # 关于已替换物品缓存表的相关设定.
+    ItemMetaCache:
+      # 每多少秒执行一次清理缓存的任务.
+      Purge-Task-Interval: 600
+      # 只清理多少秒未读取过的缓存条目.
+      Purge-Access-Interval: 300
+
+    # 关于网络数据包监听器的相关设定.
+    Packet-Listener:
+      # 定义 ProtocolStringReplacer 监听数据包全局优先度. 不要随意修改.
+      Listener-Priority: HIGHEST
+      # 是否强行修改不允许修改的数据包.
+      Force-Replace: false
+```

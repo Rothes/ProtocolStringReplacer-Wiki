@@ -1,0 +1,89 @@
+# 简述
+
+所有的替换配置文件都必须存储于 `plugins\ProtocolStringReplacer\Replacers` 或其子目录中, PSR 会在加载时遍历此文件夹, 并读取符合规范的 .yml 替换配置文件.
+
+替换配置文件用于设定替换的字符串. PSR 提供了多种设定, 可以满足多种不同的需求情景. 您也可以创建多个替换配置文件, 每一个配置都会根据它的设定、过滤器进行替换.
+
+```yaml
+# 此替换配置文件的相关设定.
+Options:
+  # 是否开启本替换配置. 若为false则不会为这个文件处理. 若未定义, 默认为false.
+  Enable: true
+  # 本文件的优先级. 若有多个替换配置, 优先级高的最早替换. 默认为5.
+  Priority: 5
+  # 可选参数
+  Version: '1.210805'
+  # 可选参数
+  Author: 'Rothes'
+  # 匹配字符串的方式. 可选值:
+  # 'Contain' : 只要包含就替换 (默认)
+  # 'Equal' : 要求设置与原字符串完全匹配
+  # 'Regex' : 使用Java正则表达式
+  # 不区分大小写.
+  Match-Mode: 'Contain'
+  # 筛选功能. 用于指定此文件替换字符串的条件.
+  Filter:
+    # 监听类型.
+    # 指定替换何处的字符串. 默认为全部. 可选值:
+    # Chat 替换聊天(chat|actionbar)信息文本
+    # Sign 替换告示牌文本
+    # Title 替换标题(title|subtitle)文本
+    # Entity 替换实体名文本
+    # Boss-Bar 替换Boss血量条文本
+    # ItemStack 替换物品(物品名|Lore|书署名|书内容)文本
+    # Window-Title 替换容器标题文本
+    # ScoreBoard 替换计分板(标题|实体名称)
+    # 不区分大小写.
+    Listen-Types:
+      - Chat
+      - Window-Title
+      - ItemStack
+      - Sign
+    # 针对计分板监听的特定过滤
+    ScoreBoard:
+      # 是否替换计分板标题. 默认为false.
+      Replace-Title: false
+      # 是否替换计分板中的实体名称. 默认为false.
+      # 注: 对于玩家, 实体名称为玩家名称; 对于非玩家则为UUID.
+      Replace-Entity-Name: false
+    ItemStack:
+      # 替换要求的窗口标题.
+      Window-Title: null
+    User:
+      # 替换所需权限. 若设定, 用于必须拥有该权限
+      # 才能使该替换配置为其生效.
+      Permission: 'example.permission.1'
+
+# 替换的字符串列表.
+# 左侧的key为原字符串 右侧的value为替换后的字符串.
+# 替换模式优先度: Json > Common, 忽略文件优先度.
+Replaces:
+  # 常规文本替换模式.
+  Common:
+    - Original: '我的名字'
+      Replacement: '｛player_name｝'
+    - Original: '一个命名牌'
+      Replacement: '我的命名牌'
+    - Original: '这样来换行'
+      Replacement: |-
+        这样
+        来换行
+  # Json 替换模式, 适合高级用户.
+  # 不支持使用 Json 替换的监听类型有:
+  # ItemStack(版本1.12及以上书内容除外)、控制台消息,
+  # 以及计分板中的实体名称、版本1.12及以下的计分板标题.
+  Json:
+    # 修改客户端上熔炉界面标题显示的名称.
+    - Original: '{"translate":"container.furnace"}'
+      Replacement: '{"text":"恭喜您打开了一个熔炉! 666!"}'
+
+# 屏蔽的字符串列表. 如果一个数据包中的任何字符串被匹配,
+# 这个数据包将整个被屏蔽发送给玩家.
+# 此功能同样适用于控制台消息.
+Blocks:
+  Common:
+    - '这条消息会被屏蔽'
+    - '这条同样也会'
+  Json:
+    - '{"text":"这条json会被屏蔽"}'
+```
