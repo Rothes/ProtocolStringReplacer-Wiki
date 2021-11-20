@@ -1,6 +1,6 @@
 # 创建
 
-如果需要创建一个替换配置文件, 只需要在 `plugins\ProtocolStringReplacer\Replacers` 目录中创建一个 .yml 后缀的文件, 并拷贝 [简述](jian-shu.md) 中的配置文件即可.
+如果需要创建一个替换配置文件, 只需要在 `plugins\ProtocolStringReplacer\Replacers` 目录中创建一个 .yml 后缀的文件, 并拷贝 [简述](Sketch.md) 中的配置文件即可.
 
 以下的文件可以被 PSR 加载:
 

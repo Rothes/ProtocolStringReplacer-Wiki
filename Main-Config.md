@@ -6,12 +6,16 @@
 
 ```yaml
 # 请勿手动修改Configs-Version值!
-Configs-Version: 4
+Configs-Version: 5
 
 Options:
   # 本地语言. 将在 ProtocolStringReplacer/Locales 中寻找对应 yml 文件.
   # 此设定也涉及一些内部操作, 建议按照规范 语言缩写(小写)-地区缩写(大写) 来填写.
   Locale: zh-CN
+
+  # 设置检测更新服务器的域名. 默认为 'raw.githubusercontent.com'.
+  # 若连接不上此加速线路, 应自行选择其它加速线路.
+  Git-Raw-Host: 'raw.fastgit.org'
 
   Features:
     # 控制台相关设定.
@@ -27,6 +31,8 @@ Options:
       Placeholder-Head: ｛
       # 使用占位符的后缀. 仅允许一个字符.
       Placeholder-Tail: ｝
+      # 是否为显示在控制台的文本解析占位符.
+      Parse-For-Console: true
 
     # 关于已替换物品缓存表的相关设定.
     ItemMetaCache:

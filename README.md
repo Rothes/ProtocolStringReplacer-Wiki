@@ -13,6 +13,10 @@ PSR 是完全开源且免费的. 我们也欢迎您的代码修改.
 * **SpigotMC**: [https://www.spigotmc.org/resources/protocolstringreplacer.96573/](https://www.spigotmc.org/resources/protocolstringreplacer.96573/)
 * **bStats**: [https://bstats.org/plugin/bukkit/ProtocolStringReplacer/11740](https://bstats.org/plugin/bukkit/ProtocolStringReplacer/11740)
 
+### 支持
+
+我们有一个 [Discord 服务器](https://discord.gg/QCfVngrnSV) 和 [QQ群](https://qm.qq.com/cgi-bin/qm/qr?k=mDtcrvBGzqbA05mPLzBnPAYXm5lskYxg\&jump\_from=webapi) 用于讨论该插件. (虽然编辑时只有我一个人在里面) 如果您确认您遇到了代码问题, 或想请求添加一个新功能, 可以在 [GitHub 议题追踪器](https://github.com/Rothes/ProtocolStringReplacer/issues) 中反馈, 请注意您必须使用英文或中文来编写每一个议题.
+
 ### 本地化
 
-PSR 尽力让所有内容, 包括主配置文件、示例替换配置文件、提示信息等都可本地化. 我们欢迎您在 GitHub 上为我们添加您使用的语言.
+PSR 尽力让所有内容, 包括主配置文件、示例替换配置文件、提示信息等都可本地化. 我们欢迎您在 GitHub 上为我们添加您所使用的语言.

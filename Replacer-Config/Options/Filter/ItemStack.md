@@ -14,7 +14,7 @@ Options:
 
 设定项 `Filter.ItemStack.Window-Title`. 代表替换要求的窗口标题.  默认值为 null. 如果设定此设定项, 则 PSR 将获取用户目前打开的窗口(即容器)的标题 Json, 只有其与此设定的列表中的任意一项完全相同时, 此替换配置文件才会为其处理. 如果保留为 null, 则 PSR 会跳过此过滤功能.
 
-您可以使用 [捕获](../../../zhi-ling/bu-huo.md) 指令捕获 Window-Title 监听类型来获取窗口标题 Json.
+您可以使用 [捕获](../../../Commands/Capture.md) 指令捕获 Window-Title 监听类型来获取窗口标题 Json.
 
 ### Ignore-Inventory-Title
 
